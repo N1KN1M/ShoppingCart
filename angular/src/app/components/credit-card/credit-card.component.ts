@@ -10,8 +10,13 @@ export class CreditCardComponent implements OnInit {
   successMsg: boolean;
   expiryMonth: number;
   expiryYear: number;
-  cvv: number;
+  cvv: string;
   cardNumber: number;
+
+  validCVV: boolean;
+  validCardNumber: boolean;
+  validexpiryMonth: boolean;
+  validexpiryYear: boolean;
   constructor(public dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -19,5 +24,12 @@ export class CreditCardComponent implements OnInit {
   }
   validateCCAndPay() {
     this.successMsg = true;
+  }
+
+  validateCVV() {
+    if (!this.cvv.match('^[0-9]{3,4}$')) {
+      return false;
+    }
+    return true;
   }
 }
