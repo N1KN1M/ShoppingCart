@@ -1,0 +1,33 @@
+.inc {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.dec {
+  background-color: Red; /* Green */
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+td {
+  width: 150px;
+  height: 50px;
+
+}
+
+button {
+  margin: 12px;
+}
+
+

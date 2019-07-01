@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Item} from '../../models/item/Item';
+
+import {ItemQuantity} from '../../models/item/ItemQuantity';
+import {Router} from '@angular/router';
+import {DataServiceService} from '../../Services/data-service.service';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-items',
@@ -8,27 +13,21 @@ import {Item} from '../../models/item/Item';
 })
 export class ItemsComponent implements OnInit {
 
-  items: Item[];
-  constructor() { }
+  constructor(private router: Router, public dataService: DataServiceService, public http: HttpClient) { }
 
   ngOnInit() {
-    this.items = [
-      {
-        id: 56001,
-        name: 'Bananas',
-        price: 40
-      },
-      {
-        id: 56002,
-        name: 'Apples',
-        price: 100
-      },
-      {
-        id: 56003,
-        name: 'Mangoes',
-        price: 80
-      }
-    ];
+    if (this.dataService.quantities.length === 0) {
+      this.fetchData();
+    }
   }
-
+  fetchData() {
+    this.dataService.getItems().subscribe((res: any[]) => {
+      res.forEach( (item) => {
+        this.dataService.quantities.push(new ItemQuantity(item, 0));
+      });
+   });
+  }
+  goToCart() {
+    this.router.navigateByUrl('/checkout');
+  }
 }

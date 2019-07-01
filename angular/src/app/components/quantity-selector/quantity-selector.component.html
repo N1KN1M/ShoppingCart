@@ -1,7 +1,17 @@
-<p>
-  <button (click)="onDecrease(item)" class="vary">-</button>
-  {{item.name}}:
-  {{item.price}}
-  <button (click)="onIncrease(item)" class="vary">+</button>
-</p>
-<div></div>
+
+
+<tr align="center">
+  <td>{{itemQuantity.item.name}}</td>
+  <td>{{itemQuantity.item.price}}</td>
+  <td>
+    <button mat-mini-fab (click)="onDecrease()" class="dec" type="button">-</button>
+    {{itemQuantity.quantity}}
+    <button mat-mini-fab (click)="onIncrease()" class="inc" type = "button">+</button>
+  </td>
+</tr>
+<br/>
+
+
+
+
+
