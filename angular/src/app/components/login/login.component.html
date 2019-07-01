@@ -1,0 +1,18 @@
+<div class="loginForm">
+  <div>Login:</div>
+  <form class="login-form" (ngSubmit)="validateAndLogin()">
+    <div class="form-group">
+      <mat-form-field class="login">
+        <input matInput placeholder="Username" name="username" id="username" required #username="ngModel" [(ngModel)]="userName">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="login">
+        <input matInput placeholder="Password" name="password" id="password" required #password="ngModel" [(ngModel)]="passWord">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="!username.valid || !password.valid">Log In!</button>
+    <button mat-raised-button type= "button" (click)="goToRegister()">Register</button>
+  </form>
+</div>

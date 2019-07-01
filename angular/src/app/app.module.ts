@@ -12,6 +12,7 @@ import {MatRadioModule, MatFormFieldModule, MatButtonModule, MatInputModule} fro
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UPIComponent } from './components/upi/upi.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
     HeaderComponent,
     CheckoutComponent,
     UPIComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
     MatButtonModule,
     MatInputModule,
     RouterModule.forRoot([
-      {path: '', component: ItemsComponent},
+      {path: '', component: LoginComponent},
       {path: 'checkout', component: CheckoutComponent},
       {path: 'payment/upi', component: UPIComponent},
       {path: 'payment/creditCard', component: CreditCardComponent}]
