@@ -16,8 +16,12 @@ public class UserDataController {
 
     @PostMapping("/post")
     public boolean write(@RequestBody Userdata userData, Model model){
-        System.out.println(userData.toString());
         userDao.write(userData);
         return true;
+    }
+
+    @PostMapping("/availability")
+    public boolean getUsers(@RequestBody String userName, Model model){
+        return userDao.get(userName);
     }
 }

@@ -19,8 +19,8 @@ public class UserDataDaoImpl {
         return true;
     }
 
-    public List<Userdata> get(){
-        return userDao.findAll();
+    public boolean get(String userName){
+        return userDao.findAll().stream().anyMatch(userdata1 -> userdata1.getUsername().equals(userName));
     }
 
 }
