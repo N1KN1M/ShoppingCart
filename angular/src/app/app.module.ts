@@ -43,7 +43,8 @@ import { RegisterComponent } from './components/register/register.component';
       {path: 'checkout', component: CheckoutComponent},
       {path: 'payment/upi', component: UPIComponent},
       {path: 'payment/creditCard', component: CreditCardComponent},
-      {path: 'register', component: RegisterComponent}
+      {path: 'register', component: RegisterComponent},
+      {path: 'shop', component: ItemsComponent}
       ])
 
   ],

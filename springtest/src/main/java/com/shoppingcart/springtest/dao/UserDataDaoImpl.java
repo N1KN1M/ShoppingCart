@@ -19,8 +19,12 @@ public class UserDataDaoImpl {
         return true;
     }
 
-    public boolean get(String userName){
-        return userDao.findAll().stream().anyMatch(userdata1 -> userdata1.getUsername().equals(userName));
+    public boolean checkExistingUserName(String userName){
+        return userDao.findAll().stream().anyMatch(userdata -> userdata.getUsername().equals(userName));
+    }
+
+    public boolean validateUser(Userdata userdata){
+        return userDao.findAll().stream().anyMatch(res -> res.getUsername().equals(userdata.getUsername()) && res.getPassword().equals(userdata.getPassword()));
     }
 
 }

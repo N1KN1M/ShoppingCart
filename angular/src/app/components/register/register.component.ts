@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserData} from '../../models/userdata/UserData';
 import {HttpClient} from '@angular/common/http';
-
+import {Router} from '@angular/router';
+// import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-register',
@@ -17,40 +18,23 @@ export class RegisterComponent implements OnInit {
   validUserName = true;
   validPassword = true;
   validConfirmPass = true;
-  verification = false;
-  availableUser = true;
-
-
+  verified = false;
+  existingUser = false;
   userData: UserData = new UserData();
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
 
   register() {
+    this.validUserName = this.validateUserName();
     this.validName = this.validateName();
     this.validEmail = this.validateEmail();
     this.validPhone = this.validatePhone();
     this.validPassword = this.validatePassword();
     this.validConfirmPass = this.validateConfirmPassword();
-    this.validUserName = this.validateUserName();
-    this.verification = this.validName && this.validEmail && this.validPhone &&
-      this.validPassword && this.validUserName && this.validConfirmPass;
-
-
-
-    // if (this.validPassword ) {
-    //
-    //   // After validation
-    //   this.http.post<UserData>('http://localhost:8080/post', this.userData).subscribe(
-    //     res => {
-    //       console.log(res);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //     }
-    //   );
-    // }
+    console.log('existingUser value at validation time: ' + this.existingUser);
+    this.userNameAvailability();
   }
 
   validateName(): boolean {
@@ -91,16 +75,42 @@ export class RegisterComponent implements OnInit {
     if (!this.userData.username.match('^([a-zA-Z0-9])*$')) {
       return false;
     }
-    return this.userNameAvailability();
+    return true;
+
   }
 
-  userNameAvailability(): boolean {
+  userNameAvailability() {
     const url = 'http://localhost:8080/availability';
+
     this.http.post<boolean>(url, this.userData.username).subscribe(
       res => {
-        console.log(res);
+        this.existingUser = res;
+        console.log('inside: ' + this.existingUser);
+        this.acceptRejectData();
       }
     );
-    return true;
+
+  }
+
+  acceptRejectData() {
+    this.verified = this.validName && this.validEmail && this.validPhone &&
+      this.validPassword && this.validUserName && this.validConfirmPass && !this.existingUser;
+
+    if (this.verified ) {
+
+      // After validation
+      this.http.post<UserData>('http://localhost:8080/post', this.userData).subscribe(
+        res => {
+          console.log('Added to database: ' + res);
+        },
+        err => {
+          console.log('Error: ' + err);
+        }
+      );
+    }
+  }
+
+  goToLogin() {
+    this.router.navigateByUrl('');
   }
 }

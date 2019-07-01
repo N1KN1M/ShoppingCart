@@ -4,38 +4,47 @@
     <div class="form-group">
       <mat-form-field class="register">
         <input matInput placeholder="Name" name="name" id="name" required #name="ngModel" [(ngModel)]="this.userData.name">
+        <label *ngIf="!this.validName">Please enter a valid Name!</label>
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="register">
         <input matInput placeholder="Email Id" name="email" id="email" required #email="ngModel" [(ngModel)]="this.userData.email">
+        <label *ngIf="!this.validEmail">Please enter a valid Email ID!</label>
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="register">
         <input matInput placeholder="Phone Number" name="phone" id="phone" required #phone="ngModel" [(ngModel)]="this.userData.phone">
+        <label *ngIf="!this.validPhone">Please enter a valid Phone Number!</label>
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="login">
         <input matInput placeholder="UserName" name="username" id="username" required #username="ngModel" [(ngModel)]="this.userData.username">
+        <label *ngIf="!this.validUserName">Please enter a valid UserName</label>
+        <label *ngIf="this.existingUser">Username is already Taken!</label>
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="login">
         <input matInput placeholder="Password" type = "password" name="password" id="password" required #password="ngModel" [(ngModel)]="this.userData.password">
+        <label *ngIf="!this.validPassword">Please enter a valid password!</label>
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="login">
         <input matInput placeholder="Confirm Password" type = "password" name="confPassword" id="confPassword" required #confPassword="ngModel" [(ngModel)]="this.confirmPassword">
+        <label *ngIf="!this.validConfirmPass">Passwords do not match!</label>
       </mat-form-field>
     </div>
     <button mat-raised-button type= "submit" [disabled]="!name.valid || !username.valid || !password.valid || !email.valid || !phone.valid || !confPassword.valid">Register</button>
+    <button mat-raised-button type= "button" (click)="goToLogin()">Log In</button>
+
   </form>
 </div>

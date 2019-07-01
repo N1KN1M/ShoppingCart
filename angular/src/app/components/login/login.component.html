@@ -1,15 +1,17 @@
 <div class="loginForm">
   <div>Login:</div>
   <form class="login-form" (ngSubmit)="validateAndLogin()">
+
+    <label *ngIf="!verified">Invalid credentials!</label>
     <div class="form-group">
       <mat-form-field class="login">
-        <input matInput placeholder="Username" name="username" id="username" required #username="ngModel" [(ngModel)]="userName">
+        <input matInput placeholder="Username" name="username" id="username" required #username="ngModel" [(ngModel)]="userData.username">
       </mat-form-field>
     </div>
 
     <div class="form-group">
       <mat-form-field class="login">
-        <input matInput placeholder="Password" name="password" id="password" required #password="ngModel" [(ngModel)]="passWord">
+        <input matInput placeholder="Password" name="password" id="password" type = "password" required #password="ngModel" [(ngModel)]="userData.password">
       </mat-form-field>
     </div>
     <button mat-raised-button type="submit" [disabled]="!username.valid || !password.valid">Log In!</button>

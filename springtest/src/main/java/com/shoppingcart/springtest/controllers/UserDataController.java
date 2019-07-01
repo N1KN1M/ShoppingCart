@@ -22,6 +22,11 @@ public class UserDataController {
 
     @PostMapping("/availability")
     public boolean getUsers(@RequestBody String userName, Model model){
-        return userDao.get(userName);
+        return userDao.checkExistingUserName(userName);
+    }
+
+    @PostMapping("/validate")
+    public boolean validateUser(@RequestBody Userdata userdata, Model model) {
+        return userDao.validateUser(userdata);
     }
 }
