@@ -15,9 +15,9 @@ public class UserDataController {
     UserDataDaoImpl userDao;
 
     @PostMapping("/post")
-    public int write(@RequestBody Userdata userData, Model model){
+    public boolean write(@RequestBody Userdata userData, Model model){
         System.out.println(userData.toString());
         userDao.write(userData);
-        return userData.getId();
+        return true;
     }
 }

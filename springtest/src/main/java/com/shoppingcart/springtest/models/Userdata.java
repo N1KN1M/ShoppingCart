@@ -9,10 +9,8 @@ import javax.persistence.Id;
 public class Userdata {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
     private String username;
+    private String name;
     private String password;
     private String phone;
     private String email;
@@ -60,7 +58,7 @@ public class Userdata {
     @Override
     public String toString() {
         return "Userdata{" +
-                "id=" + id +
+
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -69,11 +67,7 @@ public class Userdata {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+
 }
