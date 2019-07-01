@@ -10,6 +10,7 @@ import {Observable} from 'rxjs';
 export class DataServiceService {
   quantities: ItemQuantity[];
   totalCost: number;
+  userName: string;
   constructor(public http: HttpClient) {
     this.quantities = [];
     this.totalCost = 0;

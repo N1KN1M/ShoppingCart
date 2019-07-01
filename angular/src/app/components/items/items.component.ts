@@ -13,7 +13,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ItemsComponent implements OnInit {
 
-  constructor(private router: Router, public dataService: DataServiceService, public http: HttpClient) { }
+  constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
     if (this.dataService.quantities.length === 0) {

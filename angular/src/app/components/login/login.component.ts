@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {UserData} from '../../models/userdata/UserData';
+import {DataServiceService} from '../../Services/data-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {UserData} from '../../models/userdata/UserData';
 export class LoginComponent implements OnInit {
   userData = new UserData();
   verified = true;
-  constructor(private router: Router, public http: HttpClient) { }
+  constructor(private router: Router, public http: HttpClient, public dataService: DataServiceService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
       res => {
         if (null !== res && res === true) {
           this.router.navigateByUrl('/shop');
+          this.dataService.userName = this.userData.username;
         } else if ( null !== res) {
           this.verified = false;
         }
