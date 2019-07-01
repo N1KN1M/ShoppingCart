@@ -8,7 +8,13 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { RouterModule} from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {HttpClientModule} from '@angular/common/http';
-import {MatRadioModule, MatFormFieldModule, MatButtonModule, MatInputModule} from '@angular/material';
+import {
+  MatRadioModule,
+  MatFormFieldModule,
+  MatButtonModule,
+  MatInputModule,
+  MatSelectModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UPIComponent } from './components/upi/upi.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
@@ -38,6 +44,8 @@ import { RegisterComponent } from './components/register/register.component';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
+
     RouterModule.forRoot([
       {path: '', component: LoginComponent},
       {path: 'checkout', component: CheckoutComponent},

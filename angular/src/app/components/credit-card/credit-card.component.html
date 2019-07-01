@@ -11,11 +11,21 @@
 
     <div class="form-group">
       <mat-form-field class="ccPayment">
-        <input matInput placeholder="Exp Month" name="expiryMonth" id="expiryMonth" required #expiryMM="ngModel" [(ngModel)]="expiryMonth">
+        <mat-label>Expiry Month</mat-label>
+
+        <mat-select [(ngModel)]="expiryMonth" name="selectMonth" required #expiryMM="ngModel">
+          <mat-option *ngFor="let month of expiryMMSelect" [value] = month >{{month}}</mat-option>
+        </mat-select>
+
       </mat-form-field> ,
 
       <mat-form-field>
-        <input matInput placeholder="Exp Year" name="expiryYear" id="expiryYear" required #expiryYYYY="ngModel" [(ngModel)]="expiryYear">
+        <mat-label>Expiry Year</mat-label>
+
+        <mat-select [(ngModel)]="expiryYear" name="selectYear" required #expiryYYYY="ngModel">
+          <mat-option *ngFor="let year of expiryYYYYSelect" [value] = year >{{year}}</mat-option>
+        </mat-select>
+
       </mat-form-field>
 
     </div>
@@ -26,7 +36,7 @@
       </mat-form-field>
 
     </div>
-    <button mat-raised-button type="submit" [disabled]="!cardNum.valid || !expiryMM.valid || !expiryYYYY.valid || !CVV.valid">Pay!</button>
+    <button mat-raised-button type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>
 
   </form>
   <div class="success" *ngIf="successMsg">
