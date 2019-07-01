@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UPIComponent } from './components/upi/upi.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoginComponent } from './components/login/login.component';
     CheckoutComponent,
     UPIComponent,
     CreditCardComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +42,10 @@ import { LoginComponent } from './components/login/login.component';
       {path: '', component: LoginComponent},
       {path: 'checkout', component: CheckoutComponent},
       {path: 'payment/upi', component: UPIComponent},
-      {path: 'payment/creditCard', component: CreditCardComponent}]
-      )
+      {path: 'payment/creditCard', component: CreditCardComponent},
+      {path: 'register', component: RegisterComponent}
+      ])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
