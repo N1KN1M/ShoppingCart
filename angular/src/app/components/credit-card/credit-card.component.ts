@@ -14,24 +14,33 @@ export class CreditCardComponent implements OnInit {
   cardNumber: number;
   expiryMMSelect: number[];
   expiryYYYYSelect: number[];
-  validCVV: boolean;
-  validCardNumber: boolean;
-  validexpiryMonth: boolean;
-  validexpiryYear: boolean;
+  validCVV = true;
+  validCardNumber = true;
+
   constructor(public dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.dataService.redirectIfInvalid();
     this.expiryMMSelect = Array.from(new Array(12),( val , index ) => index + 1);
     this.expiryYYYYSelect = Array.from(new Array(10),( val , index ) => index + 2019);
   }
   validateCCAndPay() {
-    if(this.validateCVV()) {
+    this.validCVV = this.validateCVV();
+    this.validCardNumber = this.validateCardNumber();
+    if (this.validCVV && this.validCardNumber) {
       this.successMsg = true;
     }
   }
 
   validateCVV() {
     if (!this.cvv.match('^[0-9]{3,4}$')) {
+      return false;
+    }
+    return true;
+  }
+
+  validateCardNumber() {
+    if (!this.cvv.match('^[0-9]{16}$')) {
       return false;
     }
     return true;

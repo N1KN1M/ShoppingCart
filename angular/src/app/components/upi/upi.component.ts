@@ -13,6 +13,7 @@ export class UPIComponent implements OnInit {
   constructor(public dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.dataService.redirectIfInvalid();
   }
   validateVPAAndPay() {
 

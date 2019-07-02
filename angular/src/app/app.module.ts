@@ -20,6 +20,7 @@ import { UPIComponent } from './components/upi/upi.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
     UPIComponent,
     CreditCardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

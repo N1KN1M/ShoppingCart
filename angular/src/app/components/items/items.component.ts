@@ -16,6 +16,7 @@ export class ItemsComponent implements OnInit {
   constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.dataService.redirectIfInvalid();
     if (this.dataService.quantities.length === 0) {
       this.fetchData();
     }

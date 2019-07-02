@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, public http: HttpClient, public dataService: DataServiceService) { }
 
   ngOnInit() {
+    if (sessionStorage.length > 0) {
+      this.router.navigateByUrl('shop');
+    }
   }
   validateAndLogin() {
     const url = 'http://localhost:8080/validate';
@@ -22,6 +25,7 @@ export class LoginComponent implements OnInit {
       res => {
         if (null !== res && res === true) {
           this.router.navigateByUrl('/shop');
+          sessionStorage.setItem('user', this.userData.username);
           this.dataService.userName = this.userData.username;
         } else if ( null !== res) {
           this.verified = false;

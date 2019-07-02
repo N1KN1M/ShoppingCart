@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div>
   <div>To pay: {{this.dataService.totalCost}}</div>
   <form class="credit-card-form" (ngSubmit)="validateCCAndPay()">
@@ -6,7 +7,7 @@
       <mat-form-field class="ccPayment">
         <input matInput placeholder="Card Number" name="cardNumber" id="cardNumber" required #cardNum="ngModel" [(ngModel)]="cardNumber">
       </mat-form-field>
-
+      <label *ngIf="!validCardNumber">Please enter a valid Card Number!</label>
     </div>
 
     <div class="form-group">
@@ -33,11 +34,11 @@
     <div class="form-group">
       <mat-form-field class="ccPayment">
         <input matInput placeholder="CVV" name="cvv" id="cvv" required #CVV="ngModel" [(ngModel)]="cvv">
-      </mat-form-field>
 
+      </mat-form-field>
+      <mat-label *ngIf="!validCVV">Please Enter a valid CVV</mat-label>
     </div>
     <button mat-raised-button type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>
-
   </form>
   <div class="success" *ngIf="successMsg">
     <p>Payment Successful!</p>

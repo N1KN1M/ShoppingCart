@@ -13,7 +13,9 @@ export class CheckoutComponent implements OnInit {
   constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.dataService.redirectIfInvalid();
     this.dataService.totalCost = this.calculateCost();
+
   }
   calculateCost() {
     let cost = 0;
