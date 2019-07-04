@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     }
   }
   validateAndLogin() {
-    const url = 'http://localhost:8080/validate';
+    const url = 'http://192.168.33.10:8080/validate';
     this.http.post(url, this.userData).subscribe(
       res => {
         if (null !== res && res === true) {
