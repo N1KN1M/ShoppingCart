@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {ItemQuantity} from '../../models/item/ItemQuantity';
 import {Router} from '@angular/router';
 import {DataServiceService} from '../../Services/data-service.service';
-import {HttpClient} from '@angular/common/http';
+
 
 
 @Component({

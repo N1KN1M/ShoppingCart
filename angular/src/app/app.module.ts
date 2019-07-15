@@ -21,7 +21,6 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
-import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -36,7 +35,6 @@ import { ErrorComponent } from './components/error/error.component';
     LoginComponent,
     RegisterComponent,
     NavBarComponent,
-    ErrorComponent
   ],
   imports: [
     BrowserModule,

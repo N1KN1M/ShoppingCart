@@ -17,7 +17,7 @@ export class DataServiceService {
     this.totalCost = 0;
   }
   getItems(): Observable<any> {
-    return this.http.get('http://192.168.33.10:8080/post');
+    return this.http.get('localhost:8080/post');
   }
 
   redirectIfInvalid() {

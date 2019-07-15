@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Output, EventEmitter} from '@angular/core';
 import {ItemQuantity} from '../../models/item/ItemQuantity';
 
 @Component({
