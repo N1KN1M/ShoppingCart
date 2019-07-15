@@ -20,10 +20,11 @@ export class LoginComponent implements OnInit {
     }
   }
   validateAndLogin() {
-    const url = 'localhost:8080/validate';
+    const url = 'http://localhost:8080/validate';
     this.http.post(url, this.userData).subscribe(
       res => {
         if (null !== res && res === true) {
+          console.log('success');
           this.router.navigateByUrl('/shop');
           sessionStorage.setItem('user', this.userData.username);
           this.dataService.userName = this.userData.username;

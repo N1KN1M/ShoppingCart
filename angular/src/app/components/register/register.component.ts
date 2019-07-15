@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
   }
 
   userNameAvailability() {
-    const url = 'localhost:8080/availability';
+    const url = 'http://localhost:8080/availability';
 
     this.http.post<boolean>(url, this.userData.username).subscribe(
       res => {
@@ -98,7 +98,7 @@ export class RegisterComponent implements OnInit {
     if (this.verified ) {
 
       // After validation
-      this.http.post<UserData>('localhost:8080/post', this.userData).subscribe(
+      this.http.post<UserData>('http://localhost:8080/post', this.userData).subscribe(
         res => {
           console.log('Added to database: ' + res);
         },
