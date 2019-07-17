@@ -1,50 +1,110 @@
-<div class="RegisterForm">
-  <div>Login:</div>
-  <form class="register-form" (ngSubmit)="register()">
-    <div class="form-group">
-      <mat-form-field class="register">
-        <input matInput placeholder="Name" name="name" id="name" required #name="ngModel" [(ngModel)]="this.userData.name">
-        <label *ngIf="!this.validName">Please enter a valid Name!</label>
-      </mat-form-field>
-    </div>
+<!--<div class="RegisterForm">-->
+  <!--<div>Login:</div>-->
+  <!--<form class="register-form" (ngSubmit)="register()">-->
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="register">-->
+        <!--<input placeholder="Name" name="name" id="name" required #name="ngModel" [(ngModel)]="this.userData.name">-->
+        <!--<label *ngIf="!this.validName">Please enter a valid Name!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="register">
-        <input matInput placeholder="Email Id" name="email" id="email" required #email="ngModel" [(ngModel)]="this.userData.email">
-        <label *ngIf="!this.validEmail">Please enter a valid Email ID!</label>
-      </mat-form-field>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="register">-->
+        <!--<input matInput placeholder="Email Id" name="email" id="email" required #email="ngModel" [(ngModel)]="this.userData.email">-->
+        <!--<label *ngIf="!this.validEmail">Please enter a valid Email ID!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="register">
-        <input matInput placeholder="Phone Number" name="phone" id="phone" required #phone="ngModel" [(ngModel)]="this.userData.phone">
-        <label *ngIf="!this.validPhone">Please enter a valid Phone Number!</label>
-      </mat-form-field>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="register">-->
+        <!--<input matInput placeholder="Phone Number" name="phone" id="phone" required #phone="ngModel" [(ngModel)]="this.userData.phone">-->
+        <!--<label *ngIf="!this.validPhone">Please enter a valid Phone Number!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="login">
-        <input matInput placeholder="UserName" name="username" id="username" required #username="ngModel" [(ngModel)]="this.userData.username">
-        <label *ngIf="!this.validUserName">Please enter a valid UserName</label>
-        <label *ngIf="this.existingUser">Username is already Taken!</label>
-      </mat-form-field>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="login">-->
+        <!--<input matInput placeholder="UserName" name="username" id="username" required #username="ngModel" [(ngModel)]="this.userData.username">-->
+        <!--<label *ngIf="!this.validUserName">Please enter a valid UserName</label>-->
+        <!--<label *ngIf="this.existingUser">Username is already Taken!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="login">
-        <input matInput placeholder="Password" type = "password" name="password" id="password" required #password="ngModel" [(ngModel)]="this.userData.password">
-        <label *ngIf="!this.validPassword">Please enter a valid password!</label>
-      </mat-form-field>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="login">-->
+        <!--<input matInput placeholder="Password" type = "password" name="password" id="password" required #password="ngModel" [(ngModel)]="this.userData.password">-->
+        <!--<label *ngIf="!this.validPassword">Please enter a valid password!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="login">
-        <input matInput placeholder="Confirm Password" type = "password" name="confPassword" id="confPassword" required #confPassword="ngModel" [(ngModel)]="this.confirmPassword">
-        <label *ngIf="!this.validConfirmPass">Passwords do not match!</label>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button type= "submit" [disabled]="!name.valid || !username.valid || !password.valid || !email.valid || !phone.valid || !confPassword.valid">Register</button>
-    <button mat-raised-button type= "button" (click)="goToLogin()">Log In</button>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="login">-->
+        <!--<input matInput placeholder="Confirm Password" type = "password" name="confPassword" id="confPassword" required #confPassword="ngModel" [(ngModel)]="this.confirmPassword">-->
+        <!--<label *ngIf="!this.validConfirmPass">Passwords do not match!</label>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
+    <!--<button mat-raised-button type= "submit" [disabled]="!name.valid || !username.valid || !password.valid || !email.valid || !phone.valid || !confPassword.valid">Register</button>-->
+    <!--<button mat-raised-button type= "button" (click)="goToLogin()">Log In</button>-->
 
-  </form>
+  <!--</form>-->
+<!--</div>-->
+
+<!--asdasdasdasdasdasdasd-->
+
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign Up!</h5>
+          <form class="form-signin" (ngSubmit)="register()">
+            <div class="form-group">
+              <!--<input name="name" id="name" required #name="ngModel" [(ngModel)]="this.userData.name">-->
+              <label for="name">Name</label>
+              <input id="name" name="name"  class="form-control" #name="ngModel" [(ngModel)]="this.userData.name" required autofocus>
+            </div>
+
+            <div class="form-group">
+              <!--<input matInput placeholder="Email Id" name="email" id="email" required #email="ngModel" [(ngModel)]="this.userData.email">-->
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="this.userData.email" required>
+            </div>
+
+            <div class="form-group">
+              <!--<input matInput placeholder="Phone Number" name="phone" id="phone" required #phone="ngModel" [(ngModel)]="this.userData.phone">-->
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" class="form-control" #phone="ngModel" [(ngModel)]="this.userData.phone" required>
+            </div>
+
+            <div class="form-group">
+              <!--<input matInput placeholder="UserName" name="username" id="username" required #username="ngModel" [(ngModel)]="this.userData.username">-->
+              <label for="username">Username</label>
+              <input id="username" name="username" class="form-control" #username="ngModel" [(ngModel)]="this.userData.username" required>
+            </div>
+
+            <div class="form-group">
+              <!--<input matInput placeholder="Password" type = "password" name="password" id="password" required #password="ngModel" [(ngModel)]="this.userData.password">-->
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" class="form-control" #password="ngModel" [(ngModel)]="this.userData.password" required>
+            </div>
+
+            <div class="form-group">
+              <!--<input matInput placeholder="Confirm Password" type = "password" name="confPassword" id="confPassword" required #confPassword="ngModel" [(ngModel)]="this.confirmPassword">-->
+              <label for="confPassword">Confirm Password</label>
+              <input id="confPassword" name="confPassword" class="form-control" type="password" #confPassword="ngModel" [(ngModel)]="this.confirmPassword" required>
+            </div>
+
+            <!--<hr class="my-4">-->
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+            <hr class="my-6">
+            <p class="text-center">Already have an account?</p>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</body>

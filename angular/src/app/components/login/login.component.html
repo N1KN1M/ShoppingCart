@@ -1,20 +1,58 @@
-<div class="loginForm">
-  <div>Login:</div>
-  <form class="login-form" (ngSubmit)="validateAndLogin()">
+<!--<div class="loginForm">-->
+  <!--<div>Login:</div>-->
+  <!--<form class="" (ngSubmit)="validateAndLogin()">-->
 
-    <label *ngIf="!verified">Invalid credentials!</label>
-    <div class="form-group">
-      <mat-form-field class="login">
-        <input matInput placeholder="Username" name="username" id="username" required #username="ngModel" [(ngModel)]="userData.username">
-      </mat-form-field>
-    </div>
+    <!--<label *ngIf="!verified">Invalid credentials!</label>-->
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="login">-->
+        <!--&lt;!&ndash;<input matInput placeholder="Username" name="username" id="username" required #username="ngModel" [(ngModel)]="userData.username">&ndash;&gt;-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <mat-form-field class="login">
-        <input matInput placeholder="Password" name="password" id="password" type = "password" required #password="ngModel" [(ngModel)]="userData.password">
-      </mat-form-field>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="login">-->
+        <!--&lt;!&ndash;<input matInput placeholder="Password" name="password" id="password" type = "password" required #password="ngModel" [(ngModel)]="userData.password">&ndash;&gt;-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
+    <!--<button mat-raised-button type="submit" [disabled]="!username.valid || !password.valid">Log In!</button>-->
+    <!--<button mat-raised-button type= "button" (click)="goToRegister()">Register</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+
+<!--asdasdasdasdasdasdasdasdads-->
+
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Welcome!</h5>
+          <form class="form-signin" (ngSubmit)="validateAndLogin()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input class="form-control input-mysize" name="username" id="username" required autofocus #username="ngModel" [(ngModel)]="userData.username">
+
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control input-mysize" name="password" id="password" type = "password" required autofocus #password="ngModel" [(ngModel)]="userData.password">
+            </div>
+
+            <hr class="my-6">
+            <button class="btn btn-lg btn-block text-uppercase btn-primary" type="submit" [disabled]="!username.valid || !password.valid">Sign in</button>
+            <button class="btn btn-secondary text-uppercase btn-block " (click)="goToRegister()">
+              Register
+            </button>
+
+          </form>
+        </div>
+      </div>
     </div>
-    <button mat-raised-button type="submit" [disabled]="!username.valid || !password.valid">Log In!</button>
-    <button mat-raised-button type= "button" (click)="goToRegister()">Register</button>
-  </form>
+  </div>
 </div>
+</body>

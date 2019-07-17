@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { RouterModule} from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 import {
   MatRadioModule,
   MatFormFieldModule,
@@ -47,7 +49,7 @@ import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-
+    AngularFontAwesomeModule,
     RouterModule.forRoot([
       {path: '', component: LoginComponent},
       {path: 'checkout', component: CheckoutComponent},
