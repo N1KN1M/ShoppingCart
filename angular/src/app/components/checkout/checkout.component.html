@@ -36,17 +36,17 @@
         <div class="card-body">
           <h5 class="card-title text-center">Cart</h5>
           <form (ngSubmit)="goToPaymentPage()">
-            <div class="form-row">
-              <div class="col-md-4 form-group text-center">Name</div>
-              <div class="col-md-4 form-group text-center">Price</div>
-              <div class="col-md-4 form-group text-center">Quantity</div>
+            <div class="form-row d-flex">
+              <div class="p-2 form-group text-center mx-auto item">Name</div>
+              <div class="p-2 form-group text-center mx-auto item">Price</div>
+              <div class="p-2 form-group text-center mx-auto item">Quantity</div>
             </div>
 
-            <div class="form-row" *ngFor="let record of dataService.quantities">
+            <div class="form-row d-flex " *ngFor="let record of dataService.quantities">
               <ng-container *ngIf="record.quantity>0">
-                <div class="col-md-4 form-group text-center">{{record.item.name}}</div>
-                <div class="col-md-4 form-group text-center">{{record.item.price}}</div>
-                <div class="col-md-4 form-group text-center">{{record.quantity}}</div>
+                <div class="p-2 form-group text-center mx-auto item">{{record.item.name}}</div>
+                <div class="p-2 form-group text-center mx-auto item">{{record.item.price}}</div>
+                <div class="p-2 form-group text-center mx-auto item">{{record.quantity}}</div>
               </ng-container>
             </div>
 

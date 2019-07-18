@@ -28,3 +28,16 @@
 .card-title{
   margin-bottom: 40px;
 }
+
+/*.headers {*/
+  /*margin:auto;*/
+
+/*}*/
+
+.item{
+  width:30%;
+}
+.quantity{
+  width: 40%;
+}
+

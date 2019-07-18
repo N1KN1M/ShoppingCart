@@ -1,6 +1,6 @@
 <!--<app-nav-bar></app-nav-bar>-->
 <!--<div>-->
-  <!--<div>To pay: {{this.dataService.totalCost}}</div>-->
+  <div>To pay: {{this.dataService.totalCost}}</div>
   <!--<form class="vpa-form" (ngSubmit)="validateVPAAndPay()">-->
 
     <!--<div class="form-group">-->
@@ -28,12 +28,14 @@
         <div class="card-body">
           <h5 class="card-title text-center">UPI Payment</h5>
           <form (ngSubmit)="validateVPAAndPay()">
+            <div>To pay: {{this.dataService.totalCost}}</div>
+            <hr class="my-6">
             <div class="form-group">
               <label for="vpa">VPA</label>
               <input name="vpa" id="vpa" class="form-control input-mysize" required #vpa="ngModel" [(ngModel)]="vpaId">
             </div>
 
-            <hr class="my-6">
+
             <button class="btn btn-lg btn-block text-uppercase btn-primary" type="submit" [disabled]="!vpa.valid">Pay!</button>
 
 

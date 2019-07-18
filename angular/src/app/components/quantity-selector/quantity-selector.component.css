@@ -27,11 +27,17 @@
 /*}*/
 
 button {
-  margin: 12px;
+  margin: auto;
   }
 
 div {
   margin:auto;
 }
 
+.item{
+  width:30%;
 
+}
+.quantity{
+  width: 40%;
+}
