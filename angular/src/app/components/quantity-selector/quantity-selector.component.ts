@@ -16,8 +16,8 @@ export class QuantitySelectorComponent implements OnInit {
 
   onIncrease() {
     this.itemQuantity.quantity = this.itemQuantity.quantity + 1;
-    console.log('Name: ' + this.itemQuantity.item.name + '| Price: ' + this.itemQuantity.item.price
-      + ' |Quantity: ' + this.itemQuantity.quantity);
+    // console.log('Name: ' + this.itemQuantity.item.name + '| Price: ' + this.itemQuantity.item.price
+    //   + ' |Quantity: ' + this.itemQuantity.quantity);
 
   }
 

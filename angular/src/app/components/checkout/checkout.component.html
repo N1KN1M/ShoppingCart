@@ -1,28 +1,76 @@
 <app-nav-bar></app-nav-bar>
-<table align="center">
-  <thead>
-    <tr align="center">
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let record of dataService.quantities" align="center">
-    <ng-container *ngIf="record.quantity>0">
-      <td>{{record.item.name}}</td>
-      <td>{{record.item.price}}</td>
-      <td>{{record.quantity}}</td>
-    </ng-container>
-  </tr>
-  </tbody>
-</table>
-<div align="center"> Total: {{this.dataService.totalCost}}</div>
-<div>
-  <span>Payment Options:</span>
-  <mat-radio-group [(ngModel)] = "paymentType" aria-label="Select an option">
-    <mat-radio-button  value="upi" >UPI</mat-radio-button>
-    <mat-radio-button  value="creditCard">Credit Card</mat-radio-button>
-  </mat-radio-group>
+<!--<table align="center">-->
+  <!--<thead>-->
+    <!--<tr align="center">-->
+      <!--<th>Name</th>-->
+      <!--<th>Price</th>-->
+      <!--<th>Quantity</th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr *ngFor="let record of dataService.quantities" align="center">-->
+    <!--<ng-container *ngIf="record.quantity>0">-->
+      <!--<td>{{record.item.name}}</td>-->
+      <!--<td>{{record.item.price}}</td>-->
+      <!--<td>{{record.quantity}}</td>-->
+    <!--</ng-container>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+<!--<div align="center"> Total: {{this.dataService.totalCost}}</div>-->
+<!--<div>-->
+  <!--<span>Payment Options:</span>-->
+  <!--<mat-radio-group [(ngModel)] = "paymentType" aria-label="Select an option">-->
+    <!--<mat-radio-button  value="upi" >UPI</mat-radio-button>-->
+    <!--<mat-radio-button  value="creditCard">Credit Card</mat-radio-button>-->
+  <!--</mat-radio-group>-->
+<!--</div>-->
+<!--<div align="center"><button mat-raised-button (click)="goToPaymentPage()">Proceed to Pay</button></div>-->
+
+<!--aasdasdasdasdasdasdasdasdasdasdasdasddasd-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Cart</h5>
+          <form (ngSubmit)="goToPaymentPage()">
+            <div class="form-row">
+              <div class="col-md-4 form-group text-center">Name</div>
+              <div class="col-md-4 form-group text-center">Price</div>
+              <div class="col-md-4 form-group text-center">Quantity</div>
+            </div>
+
+            <div class="form-row" *ngFor="let record of dataService.quantities">
+              <ng-container *ngIf="record.quantity>0">
+                <div class="col-md-4 form-group text-center">{{record.item.name}}</div>
+                <div class="col-md-4 form-group text-center">{{record.item.price}}</div>
+                <div class="col-md-4 form-group text-center">{{record.quantity}}</div>
+              </ng-container>
+            </div>
+
+            <hr class="my-6">
+
+
+            <label>Payment Methods</label>
+            <div class="toggle">
+              <input type="radio" name="paymentMethod" value="upi" id="upi" [(ngModel)] = "paymentType"/>
+              <label for="upi">UPI</label>
+              <input type="radio" name="paymentMethod" value="creditCard" id="creditCard" [(ngModel)] = "paymentType"/>
+              <label for="creditCard">Credit Card</label>
+            </div>
+
+
+
+
+
+            <div class="wrapper">
+              <button type="submit" name = "Checkout" class ="btn btn-outline-dark btn-block">Pay Now!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div align="center"><button mat-raised-button (click)="goToPaymentPage()">Proceed to Pay</button></div>

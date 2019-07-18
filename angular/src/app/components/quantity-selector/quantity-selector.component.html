@@ -1,17 +1,46 @@
 
 
-<tr align="center">
-  <td>{{itemQuantity.item.name}}</td>
-  <td>{{itemQuantity.item.price}}</td>
-  <td>
-    <button mat-mini-fab (click)="onDecrease()" class="dec" type="button">-</button>
-    {{itemQuantity.quantity}}
-    <button mat-mini-fab (click)="onIncrease()" class="inc" type = "button">+</button>
-  </td>
-</tr>
+<!--<tr align="center">-->
+  <!--<td>{{itemQuantity.item.name}}</td>-->
+  <!--<td>{{itemQuantity.item.price}}</td>-->
+  <!--<td>-->
+    <!--<button mat-mini-fab (click)="onDecrease()" class="dec" type="button">-</button>-->
+    <!--{{itemQuantity.quantity}}-->
+    <!--<button mat-mini-fab (click)="onIncrease()" class="inc" type = "button">+</button>-->
+  <!--</td>-->
+<!--</tr>-->
+<!--<br/>-->
+
+
+<!--adsasdasdasdasdasdasdasdasd-->
+
+
+<!--<div class="form-group col-md-3 text-center">{{itemQuantity.item.name}}</div>-->
+<!--<div class="form-group col-md-3 text-center">{{itemQuantity.item.price}}</div>-->
+<!--<div class=" col-md-2 ">-->
+  <!--<button type="button" class="btn btn-outline-danger" (click)="onDecrease()">-</button>-->
+<!--</div>-->
+<!--<div class="form-group col-md-2 text-center">-->
+  <!--{{itemQuantity.quantity}}-->
+<!--</div>-->
+<!--<div class=" col-md-2 ">-->
+  <!--<button type="button" class="btn btn-outline-success" (click)="onIncrease()">+</button>-->
+<!--</div>-->
+
+<!--<br/>-->
+
+<!--asdasdasdasdasdasddas-->
+
+<div class="form-group col-md-4 text-center">{{itemQuantity.item.name}}</div>
+<div class="form-group col-md-4 text-center">{{itemQuantity.item.price}}</div>
+<div class=" col-md-4 text-center">
+  <button type="button" class="btn btn-outline-danger" (click)="onDecrease()">-</button>
+
+<label class="text-center">{{itemQuantity.quantity}} </label>
+
+
+
+  <button type="button" class="btn btn-outline-success" (click)="onIncrease()">+</button>
+
+
 <br/>
-
-
-
-
-

@@ -1,22 +1,54 @@
 <app-nav-bar></app-nav-bar>
-<form (ngSubmit)="goToCart()">
-  <table class="fixed" align="center">
+<!--<form (ngSubmit)="goToCart()">-->
+  <!--<table class="fixed" align="center">-->
 
-    <thead>
-    <app-header></app-header>
-    </thead>
-    <tbody>
+    <!--<thead>-->
+    <!--<app-header></app-header>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+        <!--<app-quantity-selector *ngFor="let itemQuantity of dataService.quantities" [itemQuantity]="itemQuantity">-->
+        <!--</app-quantity-selector>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<div class="wrapper">-->
+    <!--<button mat-raised-button type="submit" name = "Checkout" class ="button">Checkout</button>-->
+  <!--</div>-->
+<!--</form>-->
 
-        <app-quantity-selector *ngFor="let itemQuantity of dataService.quantities" [itemQuantity]="itemQuantity">
 
-        </app-quantity-selector>
+<!--asdasdsadasasdasdas-->
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Shop is Open for Business!</h5>
+          <form (ngSubmit)="goToCart()">
+            <div class="form-row">
+              <div class="col-md-4 form-group text-center">Name</div>
+              <div class="col-md-4 form-group text-center">Price</div>
+              <div class="col-md-4 form-group text-center">Quantity</div>
+            </div>
 
-    </tbody>
-  </table>
-  <div class="wrapper">
-    <button mat-raised-button type="submit" name = "Checkout" class ="button">Checkout</button>
+            <app-quantity-selector class="form-row" *ngFor="let itemQuantity of dataService.quantities" [itemQuantity]="itemQuantity"></app-quantity-selector>
+            <hr class="my-6">
+            <div class="wrapper">
+
+              <button type="submit" name = "Checkout" class ="btn btn-outline-primary btn-block">Checkout</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+</div>
+
+
+
+
+
+
+
 
 

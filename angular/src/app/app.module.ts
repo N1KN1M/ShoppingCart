@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './components/items/items.component';
 import { QuantitySelectorComponent } from './components/quantity-selector/quantity-selector.component';
-import { HeaderComponent } from './components/layout/header/header.component';
 import { RouterModule} from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -30,7 +29,6 @@ import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
     AppComponent,
     ItemsComponent,
     QuantitySelectorComponent,
-    HeaderComponent,
     CheckoutComponent,
     UPIComponent,
     CreditCardComponent,
