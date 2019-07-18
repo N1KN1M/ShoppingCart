@@ -1,46 +1,99 @@
-<app-nav-bar></app-nav-bar>
-<div>
-  <div>To pay: {{this.dataService.totalCost}}</div>
-  <form class="credit-card-form" (ngSubmit)="validateCCAndPay()">
+<!--<app-nav-bar></app-nav-bar>-->
+<!--<div>-->
+  <!--<div>To pay: {{this.dataService.totalCost}}</div>-->
+  <!--<form class="credit-card-form" (ngSubmit)="validateCCAndPay()">-->
 
-    <div class="form-group">
-      <mat-form-field class="ccPayment">
-        <input matInput placeholder="Card Number" name="cardNumber" id="cardNumber" required #cardNum="ngModel" [(ngModel)]="cardNumber">
-      </mat-form-field>
-      <label *ngIf="!validCardNumber">Please enter a valid Card Number!</label>
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="ccPayment">-->
+        <!--<input matInput placeholder="Card Number" name="cardNumber" id="cardNumber" required #cardNum="ngModel" [(ngModel)]="cardNumber">-->
+      <!--</mat-form-field>-->
+      <!--<label *ngIf="!validCardNumber">Please enter a valid Card Number!</label>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="ccPayment">-->
+        <!--<mat-label>Expiry Month</mat-label>-->
+
+        <!--<mat-select [(ngModel)]="expiryMonth" name="selectMonth" required #expiryMM="ngModel">-->
+          <!--<mat-option *ngFor="let month of expiryMMSelect" [value] = month >{{month}}</mat-option>-->
+        <!--</mat-select>-->
+
+      <!--</mat-form-field> ,-->
+
+      <!--<mat-form-field>-->
+        <!--<mat-label>Expiry Year</mat-label>-->
+
+        <!--<mat-select [(ngModel)]="expiryYear" name="selectYear" required #expiryYYYY="ngModel">-->
+          <!--<mat-option *ngFor="let year of expiryYYYYSelect" [value] = year >{{year}}</mat-option>-->
+        <!--</mat-select>-->
+
+      <!--</mat-form-field>-->
+
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<mat-form-field class="ccPayment">-->
+        <!--<input matInput placeholder="CVV" name="cvv" id="cvv" required #CVV="ngModel" [(ngModel)]="cvv">-->
+
+      <!--</mat-form-field>-->
+      <!--<mat-label *ngIf="!validCVV">Please Enter a valid CVV</mat-label>-->
+    <!--</div>-->
+    <!--<button mat-raised-button type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>-->
+  <!--</form>-->
+  <!--<div class="success" *ngIf="successMsg">-->
+    <!--<p>Payment Successful!</p>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--asdasdasdasdasdasdasdasdasdasdasasd-->
+
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Credit Card Payment</h5>
+          <label>To pay: {{this.dataService.totalCost}}</label>
+          <form class="form-signin" (ngSubmit)="validateCCAndPay()">
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input name="cardNumber" id="cardNumber" class="form-control" required #cardNum="ngModel" [(ngModel)]="cardNumber">
+            </div>
+
+            <div class="form-group">
+              <div class="form-group float-left expiry">
+                <label for="selectMonth">Expiry Month</label>
+                <select [(ngModel)]="expiryMonth" class="form-control" id="selectMonth" name="selectMonth" required #expiryMM="ngModel">
+                  <option *ngFor="let month of expiryMMSelect" [value] = month >{{month}}</option>
+                </select>
+              </div>
+
+              <div class="form-group float-right expiry">
+
+                <label for="selectYear">Expiry Year</label>
+                <select [(ngModel)]="expiryYear" class="form-control" id="selectYear" name="selectYear" required #expiryYYYY="ngModel">
+                  <option *ngFor="let year of expiryYYYYSelect" [value] = year >{{year}}</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="cardNumber">CVV</label>
+              <input name="cvv" type="password" id="cvv" class="form-control" required #CVV="ngModel" [(ngModel)]="cvv">
+            </div>
+
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>
+
+
+          </form>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <mat-form-field class="ccPayment">
-        <mat-label>Expiry Month</mat-label>
-
-        <mat-select [(ngModel)]="expiryMonth" name="selectMonth" required #expiryMM="ngModel">
-          <mat-option *ngFor="let month of expiryMMSelect" [value] = month >{{month}}</mat-option>
-        </mat-select>
-
-      </mat-form-field> ,
-
-      <mat-form-field>
-        <mat-label>Expiry Year</mat-label>
-
-        <mat-select [(ngModel)]="expiryYear" name="selectYear" required #expiryYYYY="ngModel">
-          <mat-option *ngFor="let year of expiryYYYYSelect" [value] = year >{{year}}</mat-option>
-        </mat-select>
-
-      </mat-form-field>
-
-    </div>
-
-    <div class="form-group">
-      <mat-form-field class="ccPayment">
-        <input matInput placeholder="CVV" name="cvv" id="cvv" required #CVV="ngModel" [(ngModel)]="cvv">
-
-      </mat-form-field>
-      <mat-label *ngIf="!validCVV">Please Enter a valid CVV</mat-label>
-    </div>
-    <button mat-raised-button type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>
-  </form>
-  <div class="success" *ngIf="successMsg">
-    <p>Payment Successful!</p>
   </div>
 </div>
+</body>
