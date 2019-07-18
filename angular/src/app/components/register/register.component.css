@@ -7,6 +7,7 @@ input{
   border-radius: 0.5rem;
 }
 body  {
+  min-height: 100%;
   background: #007bff;
   background: linear-gradient(to right, #00cb28, #94ff97);
 }

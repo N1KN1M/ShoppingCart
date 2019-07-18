@@ -18,30 +18,31 @@
 <!--</div>-->
 
 <!--adasdasdasdasdasdasdasasdasdasdasd-->
+<body>
+  <app-nav-bar></app-nav-bar>
 
-<app-nav-bar></app-nav-bar>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">UPI Payment</h5>
-          <form (ngSubmit)="validateVPAAndPay()">
-            <div>To pay: {{this.dataService.totalCost}}</div>
-            <hr class="my-6">
-            <div class="form-group">
-              <label for="vpa">VPA</label>
-              <input name="vpa" id="vpa" class="form-control input-mysize" required #vpa="ngModel" [(ngModel)]="vpaId">
-            </div>
-
-
-            <button class="btn btn-lg btn-block text-uppercase btn-primary" type="submit" [disabled]="!vpa.valid">Pay!</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">UPI Payment</h5>
+            <form (ngSubmit)="validateVPAAndPay()">
+              <div>To pay: {{this.dataService.totalCost}}</div>
+              <hr class="my-6">
+              <div class="form-group">
+                <label for="vpa">VPA</label>
+                <input name="vpa" id="vpa" class="form-control input-mysize" required #vpa="ngModel" [(ngModel)]="vpaId">
+              </div>
 
 
-          </form>
+              <button class="btn btn-lg btn-block text-uppercase btn-primary" type="submit" [disabled]="!vpa.valid">Pay!</button>
+
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>

@@ -40,4 +40,10 @@
 .quantity{
   width: 40%;
 }
+body  {
+  min-height: 100%;
+  background: #007bff;
+
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
 

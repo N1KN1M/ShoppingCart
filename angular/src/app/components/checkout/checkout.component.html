@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+
 <!--<table align="center">-->
   <!--<thead>-->
     <!--<tr align="center">-->
@@ -28,49 +28,51 @@
 <!--<div align="center"><button mat-raised-button (click)="goToPaymentPage()">Proceed to Pay</button></div>-->
 
 <!--aasdasdasdasdasdasdasdasdasdasdasdasddasd-->
+<body>
+  <app-nav-bar></app-nav-bar>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Cart</h5>
+            <form (ngSubmit)="goToPaymentPage()">
+              <div class="form-row d-flex">
+                <div class="p-2 form-group text-center mx-auto item">Name</div>
+                <div class="p-2 form-group text-center mx-auto item">Price</div>
+                <div class="p-2 form-group text-center mx-auto item">Quantity</div>
+              </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Cart</h5>
-          <form (ngSubmit)="goToPaymentPage()">
-            <div class="form-row d-flex">
-              <div class="p-2 form-group text-center mx-auto item">Name</div>
-              <div class="p-2 form-group text-center mx-auto item">Price</div>
-              <div class="p-2 form-group text-center mx-auto item">Quantity</div>
-            </div>
+              <div class="form-row d-flex " *ngFor="let record of dataService.quantities">
+                <ng-container *ngIf="record.quantity>0">
+                  <div class="p-2 form-group text-center mx-auto item">{{record.item.name}}</div>
+                  <div class="p-2 form-group text-center mx-auto item">{{record.item.price}}</div>
+                  <div class="p-2 form-group text-center mx-auto item">{{record.quantity}}</div>
+                </ng-container>
+              </div>
 
-            <div class="form-row d-flex " *ngFor="let record of dataService.quantities">
-              <ng-container *ngIf="record.quantity>0">
-                <div class="p-2 form-group text-center mx-auto item">{{record.item.name}}</div>
-                <div class="p-2 form-group text-center mx-auto item">{{record.item.price}}</div>
-                <div class="p-2 form-group text-center mx-auto item">{{record.quantity}}</div>
-              </ng-container>
-            </div>
-
-            <hr class="my-6">
-
-
-            <label>Payment Methods</label>
-            <div class="toggle">
-              <input type="radio" name="paymentMethod" value="upi" id="upi" [(ngModel)] = "paymentType"/>
-              <label for="upi">UPI</label>
-              <input type="radio" name="paymentMethod" value="creditCard" id="creditCard" [(ngModel)] = "paymentType"/>
-              <label for="creditCard">Credit Card</label>
-            </div>
+              <hr class="my-6">
 
 
+              <label>Payment Methods</label>
+              <div class="toggle ">
+                <input type="radio" name="paymentMethod" value="upi" id="upi" [(ngModel)] = "paymentType"/>
+                <label for="upi">UPI</label>
+                <input type="radio" name="paymentMethod" value="creditCard" id="creditCard" [(ngModel)] = "paymentType"/>
+                <label for="creditCard">Credit Card</label>
+              </div>
 
 
 
-            <div class="wrapper">
-              <button type="submit" name = "Checkout" class ="btn btn-outline-dark btn-block">Pay Now!</button>
-            </div>
-          </form>
+
+
+              <div class="wrapper">
+                <button type="submit" name = "Checkout" class ="btn btn-outline-dark btn-block">Pay Now!</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
