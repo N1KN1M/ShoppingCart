@@ -88,3 +88,10 @@ body  {
     color: #777;
   }
 }
+
+
+.warning {
+  background: #fc2d7f;
+  color: white;
+  margin-bottom: 10px;
+}

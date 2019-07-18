@@ -32,6 +32,8 @@
         <div class="card-body">
           <h5 class="card-title text-center">Welcome!</h5>
           <form class="form-signin" (ngSubmit)="validateAndLogin()">
+            <div class="text-center warning" *ngIf="!verified">Invalid credentials!</div>
+
             <div class="form-group">
               <label for="username">Username</label>
               <input class="form-control input-mysize" name="username" id="username" required autofocus #username="ngModel" [(ngModel)]="userData.username">

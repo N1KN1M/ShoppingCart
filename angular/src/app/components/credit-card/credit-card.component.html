@@ -49,6 +49,8 @@
 
 
 <body>
+<app-nav-bar></app-nav-bar>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -56,21 +58,24 @@
         <div class="card-body">
           <h5 class="card-title text-center">Credit Card Payment</h5>
           <label>To pay: {{this.dataService.totalCost}}</label>
+          <hr class="my-6">
           <form class="form-signin" (ngSubmit)="validateCCAndPay()">
             <div class="form-group">
+              <div class="text-center warning" *ngIf="!validCardNumber"><span>Please enter a valid Card Number!</span></div>
+
               <label for="cardNumber">Card Number</label>
               <input name="cardNumber" id="cardNumber" class="form-control" required #cardNum="ngModel" [(ngModel)]="cardNumber">
             </div>
 
-            <div class="form-group">
-              <div class="form-group float-left expiry">
+            <div class="form-group contain">
+              <div class=" expiry float-left">
                 <label for="selectMonth">Expiry Month</label>
                 <select [(ngModel)]="expiryMonth" class="form-control" id="selectMonth" name="selectMonth" required #expiryMM="ngModel">
                   <option *ngFor="let month of expiryMMSelect" [value] = month >{{month}}</option>
                 </select>
               </div>
 
-              <div class="form-group float-right expiry">
+              <div class=" expiry float-right">
 
                 <label for="selectYear">Expiry Year</label>
                 <select [(ngModel)]="expiryYear" class="form-control" id="selectYear" name="selectYear" required #expiryYYYY="ngModel">
@@ -81,6 +86,7 @@
             </div>
 
             <div class="form-group">
+              <div class="text-center warning" *ngIf="!validCVV"><span>Please Enter a valid CVV</span></div>
 
               <label for="cardNumber">CVV</label>
               <input name="cvv" type="password" id="cvv" class="form-control" required #CVV="ngModel" [(ngModel)]="cvv">

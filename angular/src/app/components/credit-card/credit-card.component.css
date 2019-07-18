@@ -3,6 +3,17 @@
   padding: 1px;
 }
 
+div.contain {
+  display: inline-block;
+  width: 96%;
+}
+
 .card-title{
   margin-bottom: 40px;
+}
+
+.warning {
+  background: #fc2d7f;
+  color: white;
+  margin-bottom: 10px;
 }
