@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  hamburger = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigateByUrl('');
   }
-  goToHome() {
-    this.router.navigateByUrl('shop');
+  hamburgerClick() {
+    this.hamburger = !this.hamburger;
   }
 }
