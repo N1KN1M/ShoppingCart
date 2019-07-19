@@ -94,7 +94,10 @@
 
 
             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" [disabled]="!cardNum.valid || !CVV.valid || !expiryYYYY.valid || !expiryMM.valid">Pay!</button>
-
+            <hr class="my-4" *ngIf="successMsg">
+            <div class="form-group" *ngIf="successMsg">
+              Payment Successful!
+            </div>
 
           </form>
         </div>

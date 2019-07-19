@@ -1,6 +1,6 @@
 <!--<app-nav-bar></app-nav-bar>-->
 <!--<div>-->
-  <div>To pay: {{this.dataService.totalCost}}</div>
+  <!--<div>To pay: {{this.dataService.totalCost}}</div>-->
   <!--<form class="vpa-form" (ngSubmit)="validateVPAAndPay()">-->
 
     <!--<div class="form-group">-->
@@ -37,7 +37,10 @@
 
 
               <button class="btn btn-lg btn-block text-uppercase btn-primary" type="submit" [disabled]="!vpa.valid">Pay!</button>
-
+              <hr class="my-4" *ngIf="successMsg">
+              <div class="form-group" *ngIf="successMsg">
+                Payment Successful!
+              </div>
 
             </form>
           </div>
